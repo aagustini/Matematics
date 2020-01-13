@@ -1,0 +1,67 @@
+
+h1{
+  color:rgb(22, 10, 190);
+  width: 100%;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 2.0rem;
+}
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+td {
+  text-align: center;
+}
+caption {
+  padding: 10px;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+/*
+#lin{
+  color: yellow;
+  font-size: xx-large;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  background-color:rgb(63, 140, 228); 
+}
+
+fieldset{
+  border-width: 10px;
+  border-top-color: coral;
+  border-bottom-color: coral;
+  border-left-color: blueviolet;
+  border-right-color: blueviolet;
+}
+
+legend{
+  color:rgb(88, 9, 77);
+  font-size: x-large;
+  font-weight: bolder;
+  text-align: center
+  ;
+}
+
+th{
+  color:rgb(88, 9, 77);
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+input{
+  font-size: xx-large;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+}
+*/
