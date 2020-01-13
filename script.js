@@ -16,6 +16,12 @@ function htmlOperacoes(lstOperacoes,htmlDiv){
     }
 }
 
+function removeOperacoesAntigas(){
+    let tabela = document.getElementById('tabela');
+    tabela.innerHTML = 
+      "<tr><th>Frase matemática</th><th>Resposta</th></tr>"
+}
+
 // Acerta imagem, exibe resposta e retorna pontuação
 function corrigeOperacoes(operacoes){
     let nro=1;
@@ -48,6 +54,7 @@ document.getElementById("butOk").onclick = function(){
     exibePontuacao(pontuacao);
 };
 document.getElementById("butNovas").onclick = function(){
+    removeOperacoesAntigas();
     operacoes = Operacao.sorteiaOperacoes(qtdadeOperacoes,"+",100,100);
     htmlOperacoes(operacoes,"divOperacoes");
 }
