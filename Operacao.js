@@ -22,23 +22,48 @@ class Operacao{
         return this._resp;
     }
 
-    static sorteiaOperacaoSoma(maxOp1,maxOp2){
-        let op1 = Math.floor(Math.random() * (maxOp1+1));
-        let op2 = Math.floor(Math.random() * (maxOp2+1));
+    static sorteiaOperacaoSomaN1(){
+        let op1 = Math.floor(Math.random() * (101));
+        let op2 = Math.floor(Math.random() * (101));
         let oper = "+";
         let resp = op1+op2;
         return new Operacao(op1,oper,op2,resp);
     }
 
-    static sorteiaOperacoes(qtdade,oper,maxOp1,maxOp2){
-        let operacoes = [];
-        for(let i=0;i<qtdade;i++){
-            switch(oper){
-            case "+":
-                let op = this.sorteiaOperacaoSoma(maxOp1,maxOp2);
-                operacoes.push(op);
-            }
-        }
-        return operacoes;
+    static sorteiaOperacaoSomaN2(){
+        let op1 = Math.floor(Math.random() * (1001));
+        let op2 = Math.floor(Math.random() * (101));
+        let oper = "+";
+        let resp = op1+op2;
+        return new Operacao(op1,oper,op2,resp);
     }
+
+    static sorteiaOperacaoSomaN3(){
+        let op1 = Math.floor(Math.random() * (1001));
+        let op2 = Math.floor(Math.random() * (1001));
+        let oper = "+";
+        let resp = op1+op2;
+        return new Operacao(op1,oper,op2,resp);
+    }
+
+    static sorteiaOperacaoSubN1(){
+        let op1 = Math.floor(Math.random() * 10)*10;
+        if (op1 < 10){
+            op1 = 10;
+        }
+        let op2 = Math.floor(Math.random() * (101));
+        if (op1 < op2){
+            let aux = op1;
+            op1 = op2;
+            op2 = aux;
+        }
+        let oper = "-";
+        let resp = op1-op2;
+        return new Operacao(op1,oper,op2,resp);
+    }
+
+    toString(){
+        return this.op1+"-"+this.oper+"-"+this.op2;
+    }
+
 }
