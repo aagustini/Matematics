@@ -15,7 +15,6 @@ function htmlOperacoes(lstOperacoes,htmlDiv){
 }
 
 function removeOperacoesAntigas(){
-    console.log("remove oper antigas");
     let tabela = document.getElementById('tabela');
     tabela.innerHTML = 
       "<tr><th>Frase matemática</th><th>Resposta</th></tr>"
@@ -26,7 +25,6 @@ function corrigeOperacoes(operacoes){
     let nro=1;
     for(oper of operacoes){
         let respDigitada = document.getElementById("resp"+nro).value;
-        //console.log(respDigitada+" : "+oper.resp);
         gAp.corrigeOperacao(oper,respDigitada);
         nro = nro + 1;
     }
@@ -46,20 +44,28 @@ function exibeStatusJogador(){
 var gAp = new GerenciaAprendizado();
 let operacoes = gAp.operacoes;
 htmlOperacoes(operacoes,"divOperacoes");
-document.getElementById("butOk").onclick = function(){
+let butOk = document.getElementById("butOk");
+butOk.onclick = function(){
     // Corrige operacoes e acerta pontuacao
     corrigeOperacoes(operacoes);
     // Ajusta o novel de dificuldade
     gAp.verificaNivel();
     // Exibe status do jogador
     exibeStatusJogador();
+    // Desabilita botao OK
+    butOk.disabled = true;
 };
 
-document.getElementById("butNovas").onclick = function(){
-    console.log("butNovas click");
+let butNovas = document.getElementById("butNovas");
+butNovas.onclick = function(){
+    // limpa operacoes antigas
     removeOperacoesAntigas();
+    // Gera nova rodada
     gAp.novaRodada();
+    // Exibe novas operacoes
     operacoes = gAp.operacoes;
     htmlOperacoes(operacoes,"divOperacoes");
+    // Habilita botao OK
+    butOk.disabled = false;
 }
 

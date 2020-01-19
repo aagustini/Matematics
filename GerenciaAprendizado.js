@@ -16,33 +16,26 @@ class GerenciaAprendizado {
     get rodada() { return this._rodada; }
     get nivel() { return this._nivel; }
     get operacoes() { return this._operacoes; }
+    get qtdadeOperRodada(){ return this._quantidadeOperRodada; }
 
     novaRodada() {
         this._operacoes = [];
         this._rodada++;
         for (let i = 0; i < this._quantidadeOperRodada; i++) {
-            console.log("Nivel:"+this._nivel);
             let op = this._niveis[this._nivel]();
             this._operacoes.push(op);
-            console.log("Operacao: "+op.toString());
         }
     }
 
     verificaNivel() {
-        this._nivel++;
-        /*
-        console.log(this._nivel+":"+this._niveis.length);
-        if (this._nivel < this._niveis.length) {
-            console.log("Pontos:"+this._pontos+"-"+"rp:"+this._rodada);
-            if (this._pontos / this._rodada >= 3.0) {
+        // Se ainda pode avançar o nivel, avança
+        if (this._nivel < this._niveis.length-1){
+            let maxPontos = this._quantidadeOperRodada * this._rodada;
+            let pontosParaAvancarNivel = maxPontos * 0.7;
+            if (this._pontos > pontosParaAvancarNivel){
                 this._nivel++;
-            } else {
-                if (this._nivel > 0) {
-                    this.nivel--;
-                }
             }
         }
-        */
     }
 
     corrigeOperacao(operacao, resposta) {
