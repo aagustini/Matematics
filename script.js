@@ -1,5 +1,5 @@
 
-function htmlOperacoes(lstOperacoes,htmlDiv){
+function htmlOperacoes(lstOperacoes){
     let tabela = document.getElementById("tabela");
     let numOfRows = tabela.rows.length;
     let nro = 1
@@ -10,6 +10,8 @@ function htmlOperacoes(lstOperacoes,htmlDiv){
         newFM.innerHTML = "<legend>"+oper.op1+" "+oper.oper+" "+oper.op2+"</legend>";
         let newResp = newRow.insertCell(1);
         newResp.innerHTML = "<input id='resp"+nro+"' size='4'>";
+        let corrResp = newRow.insertCell(2);
+        corrResp.innerHTML = "<legend id='leg"+nro+"'>"+oper.texto+"</legend>";
         nro = nro + 1;       
     }
 }
@@ -26,6 +28,7 @@ function corrigeOperacoes(operacoes){
     for(oper of operacoes){
         let respDigitada = document.getElementById("resp"+nro).value;
         gAp.corrigeOperacao(oper,respDigitada);
+        document.getElementById("leg"+nro).innerHTML = oper.texto;
         nro = nro + 1;
     }
 }
@@ -43,7 +46,7 @@ function exibeStatusJogador(){
 // --- início do programa
 var gAp = new GerenciaAprendizado();
 let operacoes = gAp.operacoes;
-htmlOperacoes(operacoes,"divOperacoes");
+htmlOperacoes(operacoes);
 let butOk = document.getElementById("butOk");
 butOk.onclick = function(){
     // Corrige operacoes e acerta pontuacao
@@ -64,7 +67,7 @@ butNovas.onclick = function(){
     gAp.novaRodada();
     // Exibe novas operacoes
     operacoes = gAp.operacoes;
-    htmlOperacoes(operacoes,"divOperacoes");
+    htmlOperacoes(operacoes);
     // Habilita botao OK
     butOk.disabled = false;
 }

@@ -4,8 +4,9 @@ class GerenciaAprendizado {
         this._rodada = 0;
         this._nivel = 0;
         this._quantidadeOperRodada = 5;
-        this._niveis = [Operacao.sorteiaOperacaoSomaN1,
-                        Operacao.sorteiaOperacaoSubN1,
+        this._niveis = [Operacao.sorteiaOperacaoSubN1,
+                        Operacao.sorteiaOperacaoSomaN1,
+                        Operacao.sorteiaOperacaoSubN2,
                         Operacao.sorteiaOperacaoSomaN2,
                         Operacao.sorteiaOperacaoSomaN3];
         this._operacoes = [];
@@ -41,8 +42,10 @@ class GerenciaAprendizado {
     corrigeOperacao(operacao, resposta) {
         if (operacao.resp == resposta) {
             this._pontos++;
+            operacao.texto = "Correto";
             return true;
         }else{
+            operacao.texto = "Errado";
             return false;
         }
     }
