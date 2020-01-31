@@ -5,6 +5,14 @@ h1{
   text-align: center;
 }
 
+legend[id^="leg"]{
+  color:rgb(88, 9, 77);
+  font-size: small;
+  font-weight: bolder;
+  text-align: center;
+  ;
+}
+
 table {
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
