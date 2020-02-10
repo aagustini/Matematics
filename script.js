@@ -43,14 +43,24 @@ function exibeStatusJogador(){
     lbRodada.innerHTML = "Rodada: "+gAp.rodada;
 }
 
+function selOper(tipo){
+    document.getElementById("pgAbertura").style.display = "none";
+    document.getElementById("mainPage").style.display = "inline";
+    gAp.inicializaOperacoes(tipo);
+    removeOperacoesAntigas();
+    htmlOperacoes(gAp.operacoes);
+}
+
 // --- início do programa
+
+// Esconde a main page deixando apenas a pagina de configuração aparecendo
+document.getElementById("mainPage").style.display = "none";
 var gAp = new GerenciaAprendizado();
-let operacoes = gAp.operacoes;
-htmlOperacoes(operacoes);
+htmlOperacoes(gAp.operacoes);
 let butOk = document.getElementById("butOk");
 butOk.onclick = function(){
     // Corrige operacoes e acerta pontuacao
-    corrigeOperacoes(operacoes);
+    corrigeOperacoes(gAp.operacoes);
     // Ajusta o novel de dificuldade
     gAp.verificaNivel();
     // Exibe status do jogador
@@ -66,8 +76,7 @@ butNovas.onclick = function(){
     // Gera nova rodada
     gAp.novaRodada();
     // Exibe novas operacoes
-    operacoes = gAp.operacoes;
-    htmlOperacoes(operacoes);
+    htmlOperacoes(gAp.operacoes);
     // Habilita botao OK
     butOk.disabled = false;
 }

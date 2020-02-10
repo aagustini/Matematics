@@ -32,10 +32,42 @@ caption {
 
 .center {
   margin: auto;
-  width: 60%;
+  width: 70%;
   border: 3px solid #73AD21;
   padding: 10px;
 }
+
+.column {
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+.row {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+/* Clear floats after the columns */
+/*.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}*/
+
+
+
 /*
 #lin{
   color: yellow;
